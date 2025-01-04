@@ -1,6 +1,5 @@
 from django.db import models
 
-# books/models.py
 class Book:
     def __init__(self, title, author, published_date, genre, price):
         self.title = title
