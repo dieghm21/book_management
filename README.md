@@ -1,35 +1,36 @@
+
 # Book Management API
 
-Una API RESTful para gestionar información de libros utilizando Django REST Framework y MongoDB.
+A RESTful API to manage book information using Django REST Framework and MongoDB.
 
 ---
 
-## **Requisitos Previos**
+## **Prerequisites**
 
-1. **Python**: Asegúrate de tener Python 3.12 o superior instalado en tu sistema.
-2. **MongoDB**: Debes tener un servidor MongoDB en ejecución (puede ser local o remoto).
-3. **Git**: Asegúrate de tener Git instalado para clonar el repositorio.
-4. **Entorno Virtual (opcional pero recomendado)**: Usaremos `venv` para manejar las dependencias.
+1. **Python**: Ensure that Python 3.12 or higher is installed on your system.
+2. **MongoDB**: You should have a MongoDB server running (it can be local or remote).
+3. **Git**: Ensure that Git is installed to clone the repository.
+4. **Virtual Environment (optional but recommended)**: We will use `venv` to manage dependencies.
 
 ---
 
-## **Instrucciones para Inicializar el Proyecto**
+## **Project Setup Instructions**
 
-### **1. Clonar el Repositorio**
+### **1. Clone the Repository**
 
 ```bash
-git clone https://github.com/<tu-usuario>/<nombre-del-repositorio>.git
-cd <nombre-del-repositorio>
+git clone https://github.com/<your-username>/<repository-name>.git
+cd <repository-name>
 ```
 
-### **2. Crear un Entorno Virtual**
+### **2. Create a Virtual Environment**
 
-En la raíz del proyecto, crea y activa un entorno virtual:
+At the root of the project, create and activate a virtual environment:
 
 #### **Windows (Command Prompt):**
 ```bash
 python -m venv venv
-venv\Scripts\activate
+venv\Scripts\ctivate
 ```
 
 #### **Windows (PowerShell):**
@@ -46,9 +47,9 @@ source venv/bin/activate
 
 ---
 
-### **3. Instalar las Dependencias**
+### **3. Install Dependencies**
 
-Ejecuta el siguiente comando para instalar todas las dependencias necesarias:
+Run the following command to install all the required dependencies:
 
 ```bash
 pip install -r requirements.txt
@@ -56,15 +57,15 @@ pip install -r requirements.txt
 
 ---
 
-### **4. Configurar la Base de Datos**
+### **4. Configure the Database**
 
-Asegúrate de que MongoDB esté ejecutándose en `mongodb://localhost:27017/`. Si usas una configuración personalizada, edita las conexiones a MongoDB en el archivo `views.py` del proyecto.
+Make sure MongoDB is running at `mongodb://localhost:27017/`. If you are using a custom configuration, edit the MongoDB connection settings in the `views.py` file of the project.
 
 ---
 
-### **5. Migraciones**
+### **5. Migrations**
 
-Ejecuta las migraciones de Django:
+Run the Django migrations:
 
 ```bash
 python manage.py makemigrations
@@ -73,39 +74,39 @@ python manage.py migrate
 
 ---
 
-### **6. Crear un Superusuario**
+### **6. Create a Superuser**
 
-Crea un superusuario para acceder al panel de administración de Django:
+Create a superuser to access the Django admin panel:
 
 ```bash
 python manage.py createsuperuser
 ```
 
-Sigue las instrucciones para ingresar un nombre de usuario, correo electrónico y contraseña.
+Follow the prompts to enter a username, email, and password.
 
 ---
 
-### **7. Cargar Datos de Prueba (Opcional)**
+### **7. Load Test Data (Optional)**
 
-Si configuraste un script para insertar datos iniciales en MongoDB, ejecútalo ahora.
+If you have configured a script to insert initial data into MongoDB, run it now.
 
 ---
 
-## **Encender el Proyecto**
+## **Start the Project**
 
-Ejecuta el siguiente comando para iniciar el servidor de desarrollo:
+Run the following command to start the development server:
 
 ```bash
 python manage.py runserver
 ```
 
-El servidor estará disponible en [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
+The server will be available at [http://127.0.0.1:8000/](http://127.0.0.1:8000/).
 
 ---
 
-## **Probar la API**
+## **Test the API**
 
-### **1. Registrar un Usuario**
+### **1. Register a User**
 ```bash
 POST /api/register/
 ```
@@ -117,7 +118,7 @@ Body (JSON):
 }
 ```
 
-### **2. Obtener un Token de Autenticación**
+### **2. Obtain an Authentication Token**
 ```bash
 POST /api/login/
 ```
@@ -128,24 +129,24 @@ Body (JSON):
   "password": "testpassword"
 }
 ```
-Respuesta esperada:
+Expected response:
 ```json
 {
   "token": "your-auth-token"
 }
 ```
 
-Usa este token en las solicitudes protegidas:
+Use this token for protected requests:
 ```
 Authorization: Token your-auth-token
 ```
 
-### **3. Listar Libros**
+### **3. List Books**
 ```bash
 GET /api/books/
 ```
 
-### **4. Crear un Libro**
+### **4. Create a Book**
 ```bash
 POST /api/books/
 ```
@@ -162,9 +163,9 @@ Body (JSON):
 
 ---
 
-## **Ejecutar Pruebas**
+## **Run Tests**
 
-Para ejecutar las pruebas unitarias:
+To run the unit tests:
 
 ```bash
 python manage.py test
